@@ -1,11 +1,12 @@
 import mysql from 'mysql';
 import {promisify} from 'util';
+import { DB_HOST, DB_NAME, DB_PASS, DB_USER } from './config.js';
 
 export const pool = mysql.createPool({
-  host: 'localhost',
-  user: 'root',
-  password: 'admin',
-  database: 'tareasJass'
+  host: DB_HOST,
+  user: DB_USER,
+  password: DB_PASS,
+  database: DB_NAME
 })
 
 pool.getConnection((err, connection)=>{
