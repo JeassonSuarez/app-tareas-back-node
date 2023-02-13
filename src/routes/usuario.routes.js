@@ -3,7 +3,7 @@ import { creaUsuario, traeUsuario } from "../controllers/usuario.controller.js";
  
 const usuario = Router();
 
-usuario.get('/', traeUsuario)
-usuario.post('/', creaUsuario)
+usuario.post('/iniciarSesion', traeUsuario)
+usuario.post('/usuario', creaUsuario)
 
 export default usuario;
