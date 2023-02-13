@@ -13,9 +13,10 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(cors());
 
 app.get("/", async(req, res)=>{
-    const r = await pool.query('select * from usuario')
-    console.log(r);
-    res.json({r})
+    res.send('ok')
+    // const r = await pool.query('select * from usuario')
+    // console.log(r);
+    // res.json({r})
 })
 
 app.use(usuario)
