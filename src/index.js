@@ -18,7 +18,7 @@ app.get("/", async(req, res)=>{
         console.log(r);
         res.json({r})
     } catch (error) {
-        res.send('error')
+        res.json({error})
     }
 })
 
