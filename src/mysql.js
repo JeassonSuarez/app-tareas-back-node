@@ -1,12 +1,13 @@
 import mysql from 'mysql';
 import {promisify} from 'util';
-import { DB_HOST, DB_NAME, DB_PASS, DB_USER } from './config.js';
+import { DB_HOST, DB_NAME, DB_PASS, DB_PORT, DB_USER } from './config.js';
 
 export const pool = mysql.createPool({
   host: DB_HOST,
+  port: DB_PORT,
   user: DB_USER,
   password: DB_PASS,
-  database: DB_NAME
+  database: DB_NAME,
 })
 
 pool.getConnection((err, connection)=>{
@@ -21,7 +22,7 @@ pool.getConnection((err, connection)=>{
       console.error('DATABASE CONNECTIION WAS REFUSED');
     }
   }
-
+  
   if(connection) connection.release();
   console.log('DB is Connected');
   return;
